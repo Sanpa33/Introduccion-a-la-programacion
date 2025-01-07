@@ -100,5 +100,25 @@ def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(num:int)->int:
     if ((num % 9) == 0):
         return num * 3
     
-    return num
+    return 
+    
+
+def lindo_nombre(nombre:str) -> str:
+
+    if (len(nombre) >= 5):
+        return "Tu nombre tiene muchas letras!"
+
+    return "Tu nombre tiene menos de 5 caracteres"
+
+
+def elRango(numero:int) -> str:
+
+    if ( numero < 5 ):
+        return "Menor a 5"
+
+    if ( 10 < numero < 20):
+        return "Entre 10 y 20"
+
+    if ( numero > 20 ):
+        return "Mayor a 20"
 
