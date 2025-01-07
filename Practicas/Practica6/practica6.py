@@ -36,6 +36,8 @@ def imprimir_dos_veces(estribillo:str) -> str:
 def es_multiplo(n:int,m:int) -> bool:
     return (n % m) == 0
 
+######################################################################################################
+
 #Ejercicio 3
 
 def alguno_es_0(numero1:int , numero2:int) -> bool:
@@ -66,4 +68,37 @@ def es_bisiesto(anio:int) -> bool:
         return True
     
     return False
+
+######################################################################################################
+
+#Ejercicio 4
+
+
+######################################################################################################
+
+#Ejercicio 5
+
+def devolver_el_doble_si_es_par(num:int) -> int:
+
+    if ((num % 2) == 0):
+        return num * 2
+    
+
+def devolver_valor_si_es_par_el_que_sigue(num:int) -> int:
+
+    if ((num % 2) == 0):
+        return num
+    
+    return num + 1
+
+
+def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(num:int)->int:
+
+    if ((num % 3) == 0):
+        return num * 2
+    
+    if ((num % 9) == 0):
+        return num * 3
+    
+    return num
 
