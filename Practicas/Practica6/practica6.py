@@ -122,3 +122,16 @@ def elRango(numero:int) -> str:
     if ( numero > 20 ):
         return "Mayor a 20"
 
+
+def determinarActividad(sexo:str,edad:int) -> str:
+
+    if(sexo == "F" and edad >= 60 ):
+        return "Anda de vacaciones"
+
+    if(sexo == "M" and edad >= 65 ):
+        return "Anda de vacaciones"
+
+    return "Te toca trabjar"
+
+print(determinarActividad("M",65))
+
