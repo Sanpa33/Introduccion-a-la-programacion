@@ -133,5 +133,62 @@ def determinarActividad(sexo:str,edad:int) -> str:
 
     return "Te toca trabjar"
 
-print(determinarActividad("M",65))
+######################################################################################################
 
+#Ejercicio 6
+
+def imprimirPrimerosDiezNumeros():
+
+    num:int = 0
+
+    while(num <= 10):
+        print(num)
+        num +=1
+
+
+def imprimirNumerosParesEntreDiezYCuarenta():
+
+    num:int = 10
+
+    while (num <= 40):
+
+        if( (num % 2) == 0 ):
+            print(num)
+
+        num +=1
+
+
+def imprimeEcoDiezVeces():
+
+    i:int = 0
+
+    while( i < 10 ):
+        print("eco")
+        i +=1
+
+def cuentaRegresiva(num:int):
+
+    while (num >= 1):
+        print(num)
+        num-=1
+
+    return "Despegue"
+
+
+def monitoreoViajeEnelTiempo( anioDePartida:int , anioDeLlegada:int ):
+
+    while (anioDePartida >= anioDeLlegada):
+
+        print(f"Viajo un anio al pasado, estamos en el anio {anioDePartida}")
+        anioDePartida-=1
+
+
+def conocerAristoteles( anioDePartida:int):
+
+    anioDeLlegada = -384
+
+    while (anioDePartida >= anioDeLlegada):
+
+        print(f"Viajo veite anios al pasado, estamos en el anio {anioDePartida}")
+        anioDePartida-=20
+    
