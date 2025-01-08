@@ -192,3 +192,49 @@ def conocerAristoteles( anioDePartida:int):
         print(f"Viajo veite anios al pasado, estamos en el anio {anioDePartida}")
         anioDePartida-=20
     
+######################################################################################################
+
+#Ejercicio 7
+
+def imprimirPrimerosDiezNumerosConFor():
+
+    for i in range(1,11):
+        print(i)
+
+def imprimirNumerosParesEntreDiezYCuarentaConFor():
+
+    for i in range(10,40):
+        if( (i % 2) == 0 ):
+            print(i)
+
+
+def imprimeEcoDiezVecesConFor():
+
+    for i in range(10): 
+        print("eco")
+
+
+def cuentaRegresivaConFor(num:int):
+
+    for i in range(num,0,-1):
+        print(i)
+    
+    print("Despegue")
+
+
+def monitoreoViajeEnElTiempoConFor(anioDePartida:int , anioDeLlegada:int):
+
+    for anio in range(anioDePartida,anioDeLlegada,-1):
+        
+        print(f"Viajo un anio al pasado, estamos en el anio {anio}")
+
+
+def conocerAristotelesConFor( anioDePartida:int):
+
+    anioDeLlegada = -384
+
+    for anio in range(anioDePartida,anioDeLlegada,-20):
+
+        print(f"Viajo veite anios al pasado, estamos en el anio {anio}")
+
+
