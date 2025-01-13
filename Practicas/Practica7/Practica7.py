@@ -170,3 +170,56 @@ def tresVocalesDistintas(palabra:str) -> bool:
 
     return False
 
+
+def subsecuencia_ordenada_mas_larga(seq:list[int]):
+
+    longitud_max = 0          # Longitud de la subsecuencia más larga encontrada
+    inicio_max = 0            # Índice de inicio de la subsecuencia más larga
+    longitud_actual = 1       # Longitud de la subsecuencia actual
+    inicio_actual = 0         # Índice de inicio de la subsecuencia actual
+
+    for i in range(1, len(seq)):
+        if (seq[i] >= seq[i - 1]):  # Si los números están en orden creciente o iguales
+            longitud_actual += 1
+        else:  # Si la secuencia pierde el orden
+            # Actualizamos la subsecuencia más larga si es mayor que la actual
+            if longitud_actual > longitud_max:
+                longitud_max = longitud_actual
+                inicio_max = inicio_actual
+            # Reiniciamos los valores para una nueva subsecuencia
+            longitud_actual = 1
+            inicio_actual = i
+
+    # Verificar al final si la última subsecuencia es la más larga
+    if longitud_actual > longitud_max:
+        inicio_max = inicio_actual
+
+    return inicio_max
+
+
+def digitos_impares(numero:int) -> int:
+
+    num_string:str = str(numero)
+    cant_numeros_impares:int = 0
+
+    for unidad in num_string:
+        unidad = int(unidad)
+        if not((unidad % 2 ) == 0 ):
+            cant_numeros_impares +=1
+    
+    return cant_numeros_impares
+
+
+def cantidad_digitos_impares(s:list[int]) -> int:
+
+    cant_numeros_impares:int = 0
+
+    for i in range(len(s)):
+        cant_numeros_impares += digitos_impares(s[i])
+
+    return cant_numeros_impares
+
+
+
+
+
