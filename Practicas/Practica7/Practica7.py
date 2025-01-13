@@ -132,3 +132,11 @@ def palindromo (texto:str) -> bool:
 
     return True
 
+
+def tresNumerosConsecutivos(lista:list[int]) -> bool:
+
+    for i in range(len(lista)-2):
+        if(lista[i] == lista[i+1] == lista[i+2]):
+            return True
+
+    return False
