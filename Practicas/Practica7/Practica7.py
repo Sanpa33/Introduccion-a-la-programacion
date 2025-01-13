@@ -140,3 +140,33 @@ def tresNumerosConsecutivos(lista:list[int]) -> bool:
             return True
 
     return False
+
+def quitarLetra(letra:str,string:str) -> str:
+
+    nuevaCadena:str = ""
+
+    for caracter in string:
+        if not(letra == caracter):
+            nuevaCadena+=caracter
+
+    return nuevaCadena
+
+
+def tresVocalesDistintas(palabra:str) -> bool:
+
+    contador = 0
+
+    while (len(palabra) > 0):
+
+        if (palabra[0] == "a" or palabra[0] == "e" or palabra[0] == "i" or palabra[0] == "o" or palabra[0] == "u" ):
+            contador +=1
+            palabra = quitarLetra(palabra[0],palabra)
+        else:
+            palabra = quitarLetra(palabra[0],palabra)
+        
+
+    if (contador >= 3):
+        return True
+
+    return False
+
