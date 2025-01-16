@@ -220,6 +220,60 @@ def cantidad_digitos_impares(s:list[int]) -> int:
     return cant_numeros_impares
 
 
+# Ejercicio 2
 
+def CerosEnPosicionesPares(s:list[int]) -> list[int]:
+
+    for i in range(len(s)):
+        if ((s[i] % 2) == 0):
+            s[i] = 0
+
+    return s
+
+
+def CerosEnPosicionesPares2(s:list[int]) -> list[int]:
+
+    res:list[int] = s.copy()
+
+    for i in range(len(s)):
+        if((s[i] % 2) == 0):
+            res[i] = 0
+        else:
+            res[i] = s[i]
+
+    return res
+
+def sacaVocales(palabra:str) -> str:
+
+    palabraFinal:str =""
+
+    for caracter in palabra:
+        if not(caracter == "a" or caracter == "e" or caracter == "i" or caracter == "o" or caracter == "u"):
+            palabraFinal += caracter
+
+    return palabraFinal
+
+def remplaza_vocales(palabra:str) -> str:
+
+    palabraFinal:str = ""
+
+    for caracter in palabra:
+        if (caracter == "a" or caracter == "e" or caracter == "i" or caracter == "o" or caracter == "u"):
+            palabraFinal+="_"
+        else:
+            palabraFinal+=caracter
+
+    return palabraFinal
+
+
+def da_vuelta_str(s:str) -> str:
+
+    #caca
+    palabraFinal = ""
+
+    for i in range(len(s)-1,-1,-1):
+        palabraFinal += s[i]
+
+    return palabraFinal
 
 
