@@ -277,3 +277,19 @@ def da_vuelta_str(s:str) -> str:
     return palabraFinal
 
 
+def pertenceLaLetra(caracter: str, palabra: str) -> bool:
+    for letra in palabra:
+        if letra == caracter:
+            return True
+    return False
+
+def eliminar_repetidos(palabra: str) -> str:
+    palabra_final = ""
+
+    for caracter in palabra:
+        # Verificar si el carácter ya está en la palabra final
+        if not pertenceLaLetra(caracter, palabra_final):
+            palabra_final += caracter
+
+    return palabra_final
+
