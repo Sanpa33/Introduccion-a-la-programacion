@@ -293,3 +293,28 @@ def eliminar_repetidos(palabra: str) -> str:
 
     return palabra_final
 
+#Ejercicio 3
+
+def resultadoMateria(listaDeNotas:list[int]) -> int:
+
+    sumaDeNotas:int = 0
+    hayNotaMenorACuatro:bool = False
+
+    for numero in listaDeNotas:
+        if(numero < 4):
+            hayNotaMenorACuatro = True
+        sumaDeNotas += numero
+
+    promedio:int = sumaDeNotas / len(listaDeNotas)
+
+    if( (hayNotaMenorACuatro == False) and (promedio >= 7) ):
+        return 1
+
+    if( (hayNotaMenorACuatro == False) and (promedio >= 4 and promedio <= 7) ):
+        return 2
+
+    if( (hayNotaMenorACuatro == True) or (promedio < 4 )):
+        return 3
+
+
+    
