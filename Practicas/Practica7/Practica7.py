@@ -317,4 +317,24 @@ def resultadoMateria(listaDeNotas:list[int]) -> int:
         return 3
 
 
-    
+#Ejercicio 4
+
+def cuentaBancaria (lista:list[tuple[str,int]]) -> int:
+
+    saldo:int = 0
+
+
+    for i in range (len(lista)):
+
+        if(lista[i][0] == "I"):
+            saldo += lista[i][1]
+
+        if(lista[i][0] == "R"):
+            saldo -= lista[i][1]
+
+    return saldo
+
+lista:list[tuple[str,int]] = [("I",2000), ("R", 20),("R", 1000),("I", 300)]
+
+
+print(cuentaBancaria(lista))
