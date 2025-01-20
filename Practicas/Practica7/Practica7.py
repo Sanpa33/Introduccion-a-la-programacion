@@ -337,4 +337,17 @@ def cuentaBancaria (lista:list[tuple[str,int]]) -> int:
 lista:list[tuple[str,int]] = [("I",2000), ("R", 20),("R", 1000),("I", 300)]
 
 
-print(cuentaBancaria(lista))
+#Ejercicio 5
+
+#lista[0,1,0,0,1,1,1,0], 0 = [true,false,true,true,false,false,true]
+
+def pertenece_a_cada_uno_version1(s: list[list[int]], e: int) -> list[bool]:
+    res: list[bool] = []
+
+    for sublista in s:
+        if pertenece(sublista,e):
+            res.append(True)
+        else:
+            res.append(False)
+
+    return res
