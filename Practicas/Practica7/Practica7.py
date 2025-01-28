@@ -350,3 +350,16 @@ def pertenece_a_cada_uno_version1(s: list[list[int]], e: int) -> list[bool]:
 
     return res
     
+
+def pertenece_a_cada_uno_version2(s: list[list[int]], e: int) -> list[bool]:
+
+    res: list[bool] = []
+    
+    for i in range(len(s)):
+
+        if(pertenece(s[i],e)):
+            res.append(True)
+        else:
+            res.append(False)
+
+    return res
