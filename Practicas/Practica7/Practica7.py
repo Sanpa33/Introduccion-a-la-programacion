@@ -363,3 +363,19 @@ def pertenece_a_cada_uno_version2(s: list[list[int]], e: int) -> list[bool]:
             res.append(False)
 
     return res
+
+
+
+# Ejercicio 6
+
+def es_matriz(matriz:list[list[int]]) -> bool:
+
+    largo_fila:int = len(matriz[0])
+
+    for fila in matriz:
+
+        if (len(fila) != largo_fila):
+            return False
+        
+    return True
+    
