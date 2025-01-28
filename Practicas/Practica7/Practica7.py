@@ -334,7 +334,7 @@ def cuentaBancaria (lista:list[tuple[str,int]]) -> int:
 
     return saldo
 
-lista:list[tuple[str,int]] = [("I",2000), ("R", 20),("R", 1000),("I", 300)]
+# lista:list[tuple[str,int]] = [("I",2000), ("R", 20),("R", 1000),("I", 300)]
 
 
 #Ejercicio 5
@@ -379,3 +379,15 @@ def es_matriz(matriz:list[list[int]]) -> bool:
         
     return True
     
+
+def filas_ordenadas(s:list[int])->list[bool]:
+
+    res:list[bool] = []
+
+    for fila in s:
+        if(ordenados(fila)):
+            res.append(True)
+        else:
+            res.append(False)
+
+    return res
