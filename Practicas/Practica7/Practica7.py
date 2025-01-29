@@ -391,3 +391,10 @@ def filas_ordenadas(s:list[int])->list[bool]:
             res.append(False)
 
     return res
+
+
+def columna(m:list[list[int]],c:int)-> list[int]:
+
+    return m[c]
+
+print(columna([[1,2,3],[6,6,6],[7,8,8]],2))
