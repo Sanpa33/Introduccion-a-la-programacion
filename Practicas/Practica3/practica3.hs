@@ -1,6 +1,3 @@
-import System.Win32 (xBUTTON1, cOLOR_ACTIVEBORDER)
-import Text.XHtml (above)
-import Distribution.SPDX (LicenseId(TORQUE_1_1))
 --Ejercicio 1
 f :: Integer -> Integer
 f 1 = 8
