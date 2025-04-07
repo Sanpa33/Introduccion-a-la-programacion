@@ -68,3 +68,26 @@ ambosSonCero2 0 0 = True
 ambosSonCero2 0 _ = False
 ambosSonCero2 _ 0 = False
 
+--F)
+
+esMismoIntervalo :: Float -> Float -> Bool
+esMismoIntervalo a b 
+                    | a <= 3 && b <= 3 = True
+                    | (a > 3 && a <= 7) && (b > 3 && b <= 7) = True  
+                    | a > 7 && b > 7 = True
+                    | otherwise = False
+
+--G)
+
+sumaDistintos :: Integer -> Integer -> Integer -> Integer
+sumaDistintos a b c
+                    | a == b && b == c = 0
+                    | a == b = c
+                    | a == c = b
+                    | b == c = a
+                    | otherwise = a + b + c
+
+--H)
+
+esMultiploDe :: Integer -> Integer -> Bool
+esMultiploDe a b = mod a b == 0 
