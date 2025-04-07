@@ -91,3 +91,13 @@ sumaDistintos a b c
 
 esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe a b = mod a b == 0 
+
+--I)
+
+digitoUnidades :: Integer -> Integer
+digitoUnidades a = a `mod` 10
+
+--J)
+
+digitoDecenas :: Integer -> Integer
+digitoDecenas a = div (mod a 100) 10
