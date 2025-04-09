@@ -178,3 +178,13 @@ type Punto3D = (Float, Float, Float)
 
 distanciaManhattan :: Punto3D -> Punto3D -> Float
 distanciaManhattan (x1,y1,z1) (x2,y2,z2) = abs (x1-x2) + abs (y1-y2) + abs (z1-z2) 
+
+--Ejercicio 8 
+
+comparar :: Integer -> Integer -> Integer
+comparar a b | sumaUltimosDosDigitos a < sumaUltimosDosDigitos b = 1 
+             | sumaUltimosDosDigitos a > sumaUltimosDosDigitos b = -1
+             | sumaUltimosDosDigitos a == sumaUltimosDosDigitos b = 0
+
+sumaUltimosDosDigitos :: Integer -> Integer
+sumaUltimosDosDigitos x = (mod (abs(x)) 10) + (mod (div (abs(x)) 10) 10 )
