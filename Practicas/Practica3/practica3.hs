@@ -111,13 +111,13 @@ estanRelacionados a b | esMultiploDe a b = True -- <=> esInteger(k=-a/b)
 
 -- Ejercicio 4
 
-productoInterno :: (Float, Float) -> (Float, Float) -> Float
+productoInterno :: Punto2D -> Punto2D -> Float
 productoInterno (x1, y1) (x2, y2) = x1 * x2 + y1 * y2
 
-esParMenor :: (Float, Float) -> (Float, Float) -> Bool
+esParMenor :: Punto2D -> Punto2D -> Bool
 esParMenor (x1, y1) (x2, y2) = (x1 < x2) && (y1 < y2)
 
-distancia :: (Float, Float) -> (Float, Float) -> Float
+distancia :: Punto2D -> Punto2D -> Float
 distancia (x1, y1) (x2, y2) = sqrt ((x2 - x1)^2 + (y2 - y1)^2)
 
 sumaTerna :: (Float,Float,Float) -> Float
@@ -144,4 +144,6 @@ crearPar a b = (a,b)
 
 invertir :: (a,b) -> (b,a)
 invertir (a,b) = (b,a)
+
+type Punto2D = (Float,Float)
 
