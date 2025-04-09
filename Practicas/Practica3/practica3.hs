@@ -147,3 +147,18 @@ invertir (a,b) = (b,a)
 
 type Punto2D = (Float,Float)
 
+--Ejericio 5
+
+todosMenores :: (Integer,Integer,Integer) -> Bool
+todosMenores (a,b,c) | ((ff a > gg a) && (ff b > gg b) && (ff c > gg c)) = True
+                     | otherwise = False
+
+ff :: Integer -> Integer
+ff n | n <= 7 = n * n
+     | n > 7 = (2 * n) - 1
+
+gg :: Integer -> Integer
+gg n | (mod n 2 == 0) = div n 2
+     | otherwise = (3 * n ) + 1 
+
+
