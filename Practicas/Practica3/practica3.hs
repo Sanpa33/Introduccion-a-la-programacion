@@ -101,3 +101,7 @@ digitoUnidades a = a `mod` 10
 
 digitoDecenas :: Integer -> Integer
 digitoDecenas a = div (mod a 100) 10
+
+estanRelacionados :: Integer -> Integer -> Bool
+estanRelacionados a b | esMultiploDe a b = True -- <=> esInteger(k=-a/b) 
+                      | otherwise = False
