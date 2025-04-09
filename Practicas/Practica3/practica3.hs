@@ -117,3 +117,31 @@ productoInterno (x1, y1) (x2, y2) = x1 * x2 + y1 * y2
 esParMenor :: (Float, Float) -> (Float, Float) -> Bool
 esParMenor (x1, y1) (x2, y2) = (x1 < x2) && (y1 < y2)
 
+distancia :: (Float, Float) -> (Float, Float) -> Float
+distancia (x1, y1) (x2, y2) = sqrt ((x2 - x1)^2 + (y2 - y1)^2)
+
+sumaTerna :: (Float,Float,Float) -> Float
+sumaTerna (a,b,c) = a+b+c
+
+sumarSoloMultiplos :: (Integer,Integer,Integer) -> Integer -> Integer
+sumarSoloMultiplos (a,b,c) n 
+                            | (esMultiploDe a n) && (esMultiploDe b n) && (esMultiploDe c n) = a + b + c        -- todos multiplos
+                            | (esMultiploDe a n) && (esMultiploDe b n) && (not(esMultiploDe c n)) = a + b       -- a y b multiplos
+                            | (not(esMultiploDe a n)) && (esMultiploDe b n) && (esMultiploDe c n) = b + c       -- b y c multiplos
+                            | (esMultiploDe a n) && (not(esMultiploDe b n)) && (esMultiploDe c n) = a + c       -- a y c multiplos
+                            | (esMultiploDe a n) && (not(esMultiploDe b n)) && (not(esMultiploDe c n)) = a      -- a multiplo 
+                            | (not(esMultiploDe a n)) && (esMultiploDe b n) && (not(esMultiploDe c n)) = b      -- b multiplo
+                            | (not(esMultiploDe a n)) && (not(esMultiploDe b n)) && (esMultiploDe c n) = c      -- c multiplo
+
+posPrimerPar :: (Integer,Integer,Integer) -> Integer
+posPrimerPar (a,b,c) | (mod a 2 == 0) = 1
+                     | (mod b 2 == 0) = 2
+                     | (mod c 2 == 0) = 3
+                     | otherwise = 4
+
+crearPar :: a -> b -> (a,b)
+crearPar a b = (a,b)
+
+invertir :: (a,b) -> (b,a)
+invertir (a,b) = (b,a)
+
