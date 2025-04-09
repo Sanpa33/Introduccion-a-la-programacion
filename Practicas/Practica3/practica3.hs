@@ -102,6 +102,18 @@ digitoUnidades a = a `mod` 10
 digitoDecenas :: Integer -> Integer
 digitoDecenas a = div (mod a 100) 10
 
+-- Ejercicio 3
+
 estanRelacionados :: Integer -> Integer -> Bool
 estanRelacionados a b | esMultiploDe a b = True -- <=> esInteger(k=-a/b) 
                       | otherwise = False
+
+
+-- Ejercicio 4
+
+productoInterno :: (Float, Float) -> (Float, Float) -> Float
+productoInterno (x1, y1) (x2, y2) = x1 * x2 + y1 * y2
+
+esParMenor :: (Float, Float) -> (Float, Float) -> Bool
+esParMenor (x1, y1) (x2, y2) = (x1 < x2) && (y1 < y2)
+
