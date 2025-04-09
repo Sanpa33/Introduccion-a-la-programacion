@@ -162,3 +162,19 @@ gg n | (mod n 2 == 0) = div n 2
      | otherwise = (3 * n ) + 1 
 
 
+--Ejercicio 6
+
+type Anio = Integer
+type EsBisiesto = Bool
+
+bisiesto :: Anio -> EsBisiesto
+bisiesto anio | (not( esMultiploDe anio 4 )) || (esMultiploDe anio 100 && (not(esMultiploDe anio 400))) = False
+              | otherwise = True
+
+
+--Ejercicio 7
+
+type Punto3D = (Float, Float, Float)
+
+distanciaManhattan :: Punto3D -> Punto3D -> Float
+distanciaManhattan (x1,y1,z1) (x2,y2,z2) = abs (x1-x2) + abs (y1-y2) + abs (z1-z2) 
