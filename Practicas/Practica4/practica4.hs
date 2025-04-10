@@ -21,3 +21,10 @@ esDivisible a b
   | otherwise       = esDivisible (a - b) b
 
 
+--Ejercicio 4
+
+sumaImpares :: Integer -> Integer
+sumaImpares 0 = 0
+sumaImpares n = (2 * n - 1) + sumaImpares (n - 1)
+
+
