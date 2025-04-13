@@ -54,3 +54,21 @@ todosDigitosIguales n  | n < 10 = True
                        | n > 10 = ultimoDigito n == ultimoDigito(sacarUltimoDigito n) && todosDigitosIguales (sacarUltimoDigito n)
 
 
+--Ejercicio 8
+
+cantDigitos :: Integer -> Integer
+cantDigitos n
+              | n < 10    = 1              
+              | otherwise = 1 + cantDigitos (n `div` 10)
+
+
+iesimoDigito :: Integer -> Integer -> Integer
+iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - i))) `mod` 10
+
+-- -- Ejercicio 9
+
+-- esCapicua :: Integer -> Bool
+-- esCapicua n = 
+
+
+
