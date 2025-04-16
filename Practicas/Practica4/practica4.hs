@@ -65,11 +65,11 @@ cantDigitos n
 iesimoDigito :: Integer -> Integer -> Integer
 iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - i))) `mod` 10
 
--- -- Ejercicio 9
+-- Ejercicio 9
 
--- esCapicua :: Integer -> Bool
--- esCapicua n = 
-
+esCapicua :: Integer -> Bool
+esCapicua n | n < 10 = True
+            | otherwise = ((primeraCifra n) == (ultimaCifra n)) && esCapicua(sacarPrimerayUltima n)
 
 ultimaCifra :: Integer -> Integer
 ultimaCifra n = mod n 10
@@ -86,4 +86,7 @@ sacarPrimerayUltima :: Integer -> Integer
 sacarPrimerayUltima n = (n `mod` (10^(cantCifras-1))) `div` 10
   where
     cantCifras = contarCifras n
+
+
+-- Ejercicio 10
 
