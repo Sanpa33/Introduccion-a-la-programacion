@@ -71,4 +71,19 @@ iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - i))) `mod` 10
 -- esCapicua n = 
 
 
+ultimaCifra :: Integer -> Integer
+ultimaCifra n = mod n 10
+
+primeraCifra :: Integer -> Integer 
+primeraCifra n | n < 10 = n
+               | otherwise = primeraCifra (div n 10)
+
+contarCifras :: Integer -> Integer
+contarCifras n | n < 10 = 1
+               | otherwise = 1 + contarCifras (div n 10) 
+
+sacarPrimerayUltima :: Integer -> Integer
+sacarPrimerayUltima n = (n `mod` (10^(cantCifras-1))) `div` 10
+  where
+    cantCifras = contarCifras n
 
