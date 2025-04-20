@@ -29,10 +29,24 @@ pertenece :: (Eq t) => t -> [t] -> Bool
 pertenece n [] = False
 pertenece n (x:xs) = n == x || pertenece n xs
 
---Ejercicio 2  -
+--Ejercicio 2  - 2)
 
 todosIguales :: (Eq t) => [t] -> Bool
 todosIguales [] = True
 todosIguales [_] = True
 todosIguales (x:y:xs) = x == y && todosIguales (y:xs)
+
+-- Ejercicio 2 - 3)
+
+todosDistintos :: (Eq t) => [t] -> Bool
+todosDistintos [] = True
+todosDistintos [_] = True
+todosDistintos (x:y:xs) = (not(pertenece x (y:xs))) && todosDistintos(y:xs)
+
+-- Ejercicio 2 - 4)
+
+hayRepetidos :: (Eq t) => [t] -> Bool
+hayRepetidos [] = False
+hayRepetidos [_] = False
+hayRepetidos (x:y:xs) = pertenece x (y:xs) ||  hayRepetidos (y:xs)
 
