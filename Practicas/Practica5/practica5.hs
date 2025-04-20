@@ -50,3 +50,9 @@ hayRepetidos [] = False
 hayRepetidos [_] = False
 hayRepetidos (x:y:xs) = pertenece x (y:xs) ||  hayRepetidos (y:xs)
 
+--Ejercicio 2 -5)
+
+quitar :: (Eq t) => t -> [t] -> [t]
+quitar n [] = []
+quitar n (x:xs) | n == x = xs
+                | otherwise = x : quitar n xs
