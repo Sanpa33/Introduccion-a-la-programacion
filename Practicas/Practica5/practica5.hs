@@ -56,3 +56,8 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar n [] = []
 quitar n (x:xs) | n == x = xs
                 | otherwise = x : quitar n xs
+
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos n [] = []
+quitarTodos n (x:xs) | n == x = quitarTodos n xs
+                     | otherwise = x : quitarTodos n xs
