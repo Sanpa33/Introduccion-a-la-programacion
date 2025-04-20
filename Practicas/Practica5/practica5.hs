@@ -57,7 +57,16 @@ quitar n [] = []
 quitar n (x:xs) | n == x = xs
                 | otherwise = x : quitar n xs
 
+--Ejercicio 2 -6)
+
 quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos n [] = []
 quitarTodos n (x:xs) | n == x = quitarTodos n xs
                      | otherwise = x : quitarTodos n xs
+
+-- Ejercicio 2 -7)
+
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos [] = []
+eliminarRepetidos (x:xs) = x : eliminarRepetidos (quitarTodos x xs)
+
