@@ -70,3 +70,14 @@ eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos [] = []
 eliminarRepetidos (x:xs) = x : eliminarRepetidos (quitarTodos x xs)
 
+--Ejercicio 2 - 8)
+
+estaContenida :: (Eq t) => [t] -> [t] -> Bool
+estaContenida [] ys = True
+estaContenida (x:xs) ys = pertenece x ys && estaContenida xs ys
+
+
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos [] _  = False
+mismosElementos _ [] = False
+mismosElementos (xs) (ys) = estaContenida xs ys  && estaContenida ys xs
