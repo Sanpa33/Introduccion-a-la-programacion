@@ -81,3 +81,9 @@ mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos [] _  = False
 mismosElementos _ [] = False
 mismosElementos (xs) (ys) = estaContenida xs ys  && estaContenida ys xs
+
+-- Ejercicio 2 - 9)
+
+capicua :: (Eq t) => [t] -> Bool
+capicua [] = True
+capicua (xs) = xs == (reverso xs)
