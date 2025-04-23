@@ -87,3 +87,10 @@ mismosElementos (xs) (ys) = estaContenida xs ys  && estaContenida ys xs
 capicua :: (Eq t) => [t] -> Bool
 capicua [] = True
 capicua (xs) = xs == (reverso xs)
+
+-- Ejercicio 3 - 1)
+
+sumatoria :: [Integer] -> Integer
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs 
+
