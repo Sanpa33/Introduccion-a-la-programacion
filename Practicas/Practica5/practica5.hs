@@ -94,3 +94,6 @@ sumatoria :: [Integer] -> Integer
 sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs 
 
+productoria :: [Integer] -> Integer
+productoria [] = 1
+productoria (x:xs) = x * productoria xs
