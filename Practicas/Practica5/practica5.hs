@@ -97,3 +97,17 @@ sumatoria (x:xs) = x + sumatoria xs
 productoria :: [Integer] -> Integer
 productoria [] = 1
 productoria (x:xs) = x * productoria xs
+
+maxEntre2 :: Integer -> Integer -> Integer
+maxEntre2 x y | x > y = x
+              | otherwise = y
+
+maximo :: [Integer] -> Integer 
+maximo [] = 0
+maximo [x] = x
+maximo (x:xs) = maxEntre2 x (maximo xs)
+
+sumarN :: Integer -> [Integer] -> [Integer]
+sumar n [] = []
+sumarN n [x] = [x+n]
+sumarN n (x:xs) = (x+n) : sumarN n xs
