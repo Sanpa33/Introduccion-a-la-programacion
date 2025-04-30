@@ -111,3 +111,35 @@ sumarN :: Integer -> [Integer] -> [Integer]
 sumar n [] = []
 sumarN n [x] = [x+n]
 sumarN n (x:xs) = (x+n) : sumarN n xs
+
+sumarElPrimero :: [Integer] -> [Integer]
+sumarElPrimero [] = []
+sumarElPrimero (x:xs) = sumarN x xs
+
+sumarElUltimo :: [Integer] -> [Integer]
+sumarElUltimo [] = []
+sumarElUltimo xs = sumarN (ultimo xs) xs 
+
+esPar :: Integer -> Bool
+esPar n | mod n 2 == 0 = True
+        | otherwise = False
+
+pares :: [Integer] -> [Integer]
+pares [] = []
+pares (x:xs) | esPar x = x : pares xs
+             | otherwise = pares xs
+
+
+esMultiplo :: Integer -> Integer -> Bool
+esMultiplo a b = mod b a == 0
+
+multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN m [] = []
+multiplosDeN m (x:xs) | esMultiplo m x = x : multiplosDeN m xs
+                      | otherwise = multiplosDeN m xs
+
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar [x] = [x]
+ordenar (x:xs) = ordenar (xs) ++ [maximo(x:xs)]
+
