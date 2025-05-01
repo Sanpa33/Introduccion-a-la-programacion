@@ -143,3 +143,8 @@ ordenar [] = []
 ordenar [x] = [x]
 ordenar (x:xs) = ordenar (xs) ++ [maximo(x:xs)]
 
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos [t] = [t]
+sacarBlancosRepetidos (x:y:xs) | (x == ' ') && (x == y)  = sacarBlancosRepetidos (y:xs)
+                               | otherwise = x : sacarBlancosRepetidos (y:xs)
