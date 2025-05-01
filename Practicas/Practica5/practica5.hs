@@ -143,8 +143,34 @@ ordenar [] = []
 ordenar [x] = [x]
 ordenar (x:xs) = ordenar (xs) ++ [maximo(x:xs)]
 
+
+--Ejercicio 4
+
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [t] = [t]
 sacarBlancosRepetidos (x:y:xs) | (x == ' ') && (x == y)  = sacarBlancosRepetidos (y:xs)
                                | otherwise = x : sacarBlancosRepetidos (y:xs)
+
+contarPalabras :: [Char] -> Integer
+contarPalabras [] = 0
+contarPalabras [x] = 1
+contarPalabras palabra = contarEspacios(corregirTexto palabra) + 1
+
+contarEspacios :: [Char] -> Integer
+contarEspacios [x] = 0
+contarEspacios (x:xs) | x == ' ' = 1 + contarEspacios xs
+                      | otherwise = contarEspacios xs
+
+quitarPrimerEspacio :: [Char] -> [Char]
+quitarPrimerEspacio (x:xs) | x == ' ' = xs
+                           | otherwise = xs
+
+quitarUltimoEspacio :: [Char] -> [Char]
+quitarUltimoEspacio [] = []
+quitarUltimoEspacio [x] | x == ' ' = []
+                        | otherwise = [x]
+quitarUltimoEspacio (x:xs) = x : quitarUltimoEspacio xs
+
+corregirTexto :: [Char] -> [Char]
+corregirTexto xs = quitarPrimerEspacio (quitarUltimoEspacio (sacarBlancosRepetidos xs ))
