@@ -145,13 +145,13 @@ ordenar (x:xs) = ordenar (xs) ++ [maximo(x:xs)]
 
 
 --Ejercicio 4
-
+-- 4.a
 sacarBlancosRepetidos :: [Char] -> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos [t] = [t]
 sacarBlancosRepetidos (x:y:xs) | (x == ' ') && (x == y)  = sacarBlancosRepetidos (y:xs)
                                | otherwise = x : sacarBlancosRepetidos (y:xs)
-
+-- 4.b
 contarPalabras :: [Char] -> Integer
 contarPalabras [] = 0
 contarPalabras [x] = 1
@@ -174,3 +174,54 @@ quitarUltimoEspacio (x:xs) = x : quitarUltimoEspacio xs
 
 corregirTexto :: [Char] -> [Char]
 corregirTexto xs = quitarPrimerEspacio (quitarUltimoEspacio (sacarBlancosRepetidos xs ))
+
+-- 4.c
+palabras  :: [Char] ->[[Char]]
+palabras [] = []
+palabras texto = primeraPalabra texto : palabras (quitarPrimeraPalabra (corregirTexto(texto))) 
+
+primeraPalabra :: [Char] -> [Char]
+primeraPalabra [] = []
+primeraPalabra (x:xs) | x == ' ' = []
+                            | otherwise = x : primeraPalabra xs
+
+quitarPrimeraPalabra :: [Char] -> [Char]
+quitarPrimeraPalabra [] = []
+quitarPrimeraPalabra (x:xs) | x == ' ' = xs
+                            | otherwise = quitarPrimeraPalabra xs
+
+-- 4.d
+
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga [] = []
+palabraMasLarga texto =  palabrasMasLargaEnListaDePalabras (palabras texto)
+
+
+palabrasMasLargaEnListaDePalabras :: [[Char]] -> [Char]
+palabrasMasLargaEnListaDePalabras [p1] = p1
+palabrasMasLargaEnListaDePalabras (p1:p2:palabras) | longitud p1 > longitud p2 = palabrasMasLargaEnListaDePalabras (p1:palabras)
+                                                   | longitud p2 > longitud p1 = palabrasMasLargaEnListaDePalabras (p2:palabras)
+
+-- 4.e
+
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
+
+-- 4.f
+
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [x] = x
+aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
+
+
+-- 4.g
+
+aplanarConNBlancos :: [[Char]] -> Integer ->[Char]
+aplanarConNBlancos [x] n = x
+aplanarConNBlancos (x:xs) n = x ++ creaNEspacios n ++ aplanarConNBlancos xs n 
+
+creaNEspacios :: Integer -> [Char]
+creaNEspacios 0 = []
+creaNEspacios n = " " ++ creaNEspacios(n-1)
+
