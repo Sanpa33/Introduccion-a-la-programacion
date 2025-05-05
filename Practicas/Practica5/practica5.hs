@@ -225,3 +225,128 @@ creaNEspacios :: Integer -> [Char]
 creaNEspacios 0 = []
 creaNEspacios n = " " ++ creaNEspacios(n-1)
 
+-- Ejercicio 5.1
+
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [] = []
+sumaAcumulada [x] = [x]
+sumaAcumulada (x:y:xs) = x : sumaAcumulada ((x+y):xs)
+
+--Ejercicio 5.2
+
+descomponer :: Integer -> [Integer]
+descomponer n = descomponerDesde n 2
+
+descomponerDesde :: Integer -> Integer -> [Integer]
+descomponerDesde 1 _ = []
+descomponerDesde n d
+                | mod n d == 0 = d : descomponerDesde (div n d) d
+                | otherwise    = descomponerDesde n (d + 1)
+
+
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = descomponer x : descomponerEnPrimos xs
+
+-- Ejercicio 6
+
+type Texto = [Char]
+type Nombre = Texto
+type Telefono = Texto
+type Contacto = (Nombre, Telefono)
+type ContactosTel = [Contacto]
+
+-- 6.a
+
+                --String -> [(String,String)] -> Bool
+
+enLosContactos :: Nombre -> ContactosTel -> Bool
+enLosContactos nombre [] = False
+enLosContactos nombre (contacto:contactos) | fst contacto == nombre = True
+                                           | otherwise = enLosContactos nombre contactos
+
+-- 6.b
+
+agregarContactos :: Contacto -> ContactosTel -> ContactosTel
+agregarContactos _ [] = []
+agregarContactos contactoNuevo (contactos)          | perteneceElContacto contactoNuevo contactos == False = contactoNuevo : contactos
+
+agregarContactos contactoNuevo (contacto:contactos) | elNombre contactoNuevo == elNombre contacto = contactoNuevo : contactos 
+                                                    | otherwise = contacto : agregarContactos contactoNuevo contactos
+
+
+perteneceElContacto :: Contacto -> ContactosTel -> Bool
+perteneceElContacto _ [] = False
+perteneceElContacto contactoABuscar (contacto:contactos) | elNombre contactoABuscar == elNombre contacto = True
+                                                         | otherwise = perteneceElContacto contactoABuscar contactos
+
+elNombre :: Contacto -> [Char]
+elNombre contacto = fst contacto
+
+elTelefono :: Contacto -> [Char]
+elTelefono contacto = snd contacto
+
+-- 6.c
+
+eliminarContacto :: Nombre -> ContactosTel -> ContactosTel
+eliminarContacto _ [] = []
+eliminarContacto nombreABuscar (contacto:contactos) | nombreABuscar == fst contacto = eliminarContacto nombreABuscar contactos 
+                                                    | otherwise = contacto : eliminarContacto nombreABuscar contactos
+
+--Ejercicio 7
+
+type Identificacion = Integer
+type Ubicacion = Texto
+type Estado = (Disponibilidad, Ubicacion)
+type Locker = (Identificacion, Estado)
+type MapaDeLockers = [Locker]
+type Disponibilidad = Bool
+
+
+-- lockers =
+-- [
+-- (100,(False,"ZD39I")),
+-- (101,(True,"JAH3I")),
+-- (103,(True,"IQSA9")),
+-- (105,(True,"QOTSA")),
+-- (109,(False,"893JJ")),
+-- (110,(False,"99292"))
+-- ]
+
+-- lockers =
+-- [(100,(False,"ZD39I")) , (101,(True,"JAH3I")) , (103,(True,"IQSA9")) , (105,(True,"QOTSA")) , (109,(False,"893JJ")),  (110,(False,"99292")) ]
+
+-- locker = (100,(False,"ZD39I"))
+
+
+--Punto 1
+--                 Integer      -> [(Integer , (Bool,String))] -> Bool
+existeElLocker :: Identificacion -> MapaDeLockers -> Bool
+existeElLocker _ [] = False
+existeElLocker id (locker:lockers) | id == fst locker = True
+                                   | otherwise = existeElLocker id lockers    
+
+--Punto 2
+--                   Integer         -> [(Integer , (Bool,String))]
+ubicacionDelLocker :: Identificacion -> MapaDeLockers -> Ubicacion
+ubicacionDelLocker _ [] = []
+ubicacionDelLocker id (locker:lockers) | id == fst locker = snd (snd locker)
+                                       | otherwise = ubicacionDelLocker id lockers 
+
+
+--Punto 3
+--                      Integer -> [(Integer , (Bool,String))] -> Bool
+estaDisponibleElLocker :: Identificacion -> MapaDeLockers -> Bool
+estaDisponibleElLocker id [] = False
+estaDisponibleElLocker id (locker:lockers) | id == fst locker = fst (snd locker)
+                                           | otherwise = estaDisponibleElLocker id lockers
+
+
+--Punto 4
+--              Integer      -> [(Integer , (Bool,String))] -> [(Integer , (Bool,String))]
+ocuparLocker :: Identificacion -> MapaDeLockers -> MapaDeLockers 
+ocuparLocker id (locker:lockers) | id == fst locker && fst (snd locker) == False = lockerActualizado : lockers
+                                 | id == fst locker && fst (snd locker) == True = locker : lockers
+                                 | otherwise = locker : ocuparLocker id lockers
+                                  where lockerActualizado = (id , (True, snd (snd locker)))
+
